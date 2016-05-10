@@ -17,6 +17,7 @@ var deepmerge = DeepMerge(function(target, source, key) {
 var defaultConfig = {
   module: {
     loaders: [
+      {test: /\.ts/, exclude: /node_modules/, loaders: ['monkey-hot', 'ts'] },
       {test: /\.js$/, exclude: /node_modules/, loaders: ['monkey-hot', 'babel'] },
     ]
   }
