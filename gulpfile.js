@@ -17,7 +17,7 @@ var deepmerge = DeepMerge(function(target, source, key) {
 var defaultConfig = {
   module: {
     loaders: [
-      {test: /\.ts/, exclude: /node_modules/, loaders: ['monkey-hot', 'ts'] },
+      {test: /\.ts/, exclude: /node_modules/, loaders: ['monkey-hot', 'ts', 'babel'] },
       {test: /\.js$/, exclude: /node_modules/, loaders: ['monkey-hot', 'babel'] },
     ]
   }
@@ -43,7 +43,7 @@ var nodeModules = fs.readdirSync('node_modules')
 var backendConfig = config({
   entry: [
     'webpack/hot/signal.js',
-    './server/server.js'
+    './server/server.ts'
   ],
   target: 'node',
   output: {
